@@ -1,0 +1,39 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>org.openstreetmap.osmosis</groupId>
+	<artifactId>osmosis-set</artifactId>
+	<packaging>jar</packaging>
+	
+	<parent>
+		<groupId>org.openstreetmap.osmosis</groupId>
+		<artifactId>osmosis</artifactId>
+		<version>0.40-SNAPSHOT</version>
+	</parent>
+
+	<name>Osmosis-Set</name>
+
+	<dependencies>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>osmosis-core</artifactId>
+			<version>${project.version}</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>osmosis-xml</artifactId>
+			<version>${project.version}</version>
+			<scope>compile</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${dependency.version.junit}</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+</project>

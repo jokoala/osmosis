@@ -63,5 +63,17 @@
 	<modules>
 		<module>core</module>
 		<module>xml</module>
+		<module>set</module>
+		<module>replication</module>
+		<module>apidb</module>
+		<module>areafilter</module>
+		<module>dataset</module>
+		<module>extract</module>
+		<module>hstore-jdbc</module>
+		<module>pbf</module>
+		<module>pgsimple</module>
+		<module>pgsnapshot</module>
+		<module>tagfilter</module>
+		<module>package</module>
 	</modules>
 </project>
