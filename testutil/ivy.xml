@@ -3,7 +3,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:noNamespaceSchemaLocation="http://ant.apache.org/ivy/schemas/ivy.xsd">
 	
-    <info organisation="org.openstreetmap.osmosis" module="osmosis-xml"/>
+    <info organisation="org.openstreetmap.osmosis" module="osmosis-testutil"/>
     
     <configurations>
 		<conf name="default" visibility="public" description="runtime dependencies and master artifact can be used with this conf" extends="runtime,master"/>
@@ -25,11 +25,8 @@
     
     <dependencies>
     	<dependency org="org.openstreetmap.osmosis" name="osmosis-core" rev="${project.version}" conf="compile->default" changing="true"/>
+    	<dependency org="junit" name="junit" rev="${dependency.version.junit}" conf="compile->default"/>
     	
-    	<dependency org="commons-codec" name="commons-codec" rev="${dependency.version.commons-codec}" conf="compile->default"/>
-        
-        <dependency org="org.openstreetmap.osmosis" name="osmosis-testutil" rev="${project.version}" conf="test->default" changing="true"/>
-        <dependency org="junit" name="junit" rev="${dependency.version.junit}" conf="test->default"/>
     	<dependency org="com.puppycrawl.tools" name="checkstyle" rev="${dependency.version.checkstyle}" conf="test->default"/>
     </dependencies>
 </ivy-module>
