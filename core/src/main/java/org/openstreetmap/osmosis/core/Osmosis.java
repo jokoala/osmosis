@@ -34,10 +34,12 @@ public final class Osmosis {
 	 */
 	public static void main(String[] args) {
 		try {
+                        System.out.println("starting...");
 			run(args);
 			
 			System.exit(0);
-			
+                } catch (OsmosisParsingException exc) {
+                        LOG.log(Level.SEVERE, exc.FormatErrorMessage());
 		} catch (Throwable t) {
 			LOG.log(Level.SEVERE, "Execution aborted.", t);
 		}
