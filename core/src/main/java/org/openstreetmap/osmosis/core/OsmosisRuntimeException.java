@@ -55,4 +55,11 @@ public class OsmosisRuntimeException extends RuntimeException {
     public OsmosisRuntimeException(String message, Throwable cause) {
 		super(message, cause);
 	}
+
+    /**
+     * Formats an userfriendly error message.
+     */
+    public String getUserfriendlyMessage() {
+                return "an error occurred:\n" + getMessage();
+    }
 }

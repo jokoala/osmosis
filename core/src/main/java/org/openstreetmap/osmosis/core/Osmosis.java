@@ -38,8 +38,8 @@ public final class Osmosis {
 			run(args);
 			
 			System.exit(0);
-                } catch (OsmosisParsingException exc) {
-                        LOG.log(Level.SEVERE, exc.FormatErrorMessage());
+                } catch (OsmosisRuntimeException exc) {
+                        LOG.log(Level.SEVERE, exc.getUserfriendlyMessage());
 		} catch (Throwable t) {
 			LOG.log(Level.SEVERE, "Execution aborted.", t);
 		}

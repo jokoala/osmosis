@@ -58,7 +58,7 @@ public class TaskManagerFactoryRegister {
          */
         public TaskManagerFactory getInstance(String taskType) {
                 if (!factoryMap.containsKey(taskType)) {
-                        throw new OsmosisParsingException("Task type " + taskType
+                        throw new OsmosisRuntimeException("Task type " + taskType
                                         + " doesn't exist.");
                 }
                 
