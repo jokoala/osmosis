@@ -76,7 +76,7 @@ public class CommandLineParser {
 			} else if (arg.indexOf(GLOBAL_ARGUMENT_PREFIX) == 0) {
 				i = parseGlobalOption(globalOptions, programArgs, i);
 			} else {
-				throw new OsmosisRuntimeException("Expected argument " + (i + 1) + " to be an option or task name.");
+                                throw new OsmosisParsingException(i+1, arg, "expected an option (-?) or a task name (--sth)");
 			}
 		}
 		
@@ -89,9 +89,8 @@ public class CommandLineParser {
 			} else if (isArgumentForOption(OPTION_PLUGIN_SHORT, OPTION_PLUGIN_LONG, globalOption.name)) {
 				plugins.add(parseOptionString(globalOption));
 			} else {
-				throw new OsmosisRuntimeException("Argument " + (globalOption.offset + 1)
-						+ " specifies an unrecognised option \"" + GLOBAL_ARGUMENT_PREFIX + globalOption.name
-						+ "\".");
+                                throw new OsmosisParsingException(globalOption.offset+1, programArgs[globalOption.offset], 
+                                        "unrecognised option");
 			}
 		}
 	}
@@ -156,8 +155,7 @@ public class CommandLineParser {
 		
 		// An integer option may only have one parameter.
 		if (globalOption.parameters.size() > 1) {
-			throw new OsmosisRuntimeException(
-					"Expected argument " + (globalOption.offset + 1) + " to have no more than one parameter.");
+                        throw new OsmosisParsingException(globalOption.offset+1, "", "expected argument %s to have no more than one parameter.");
 		}
 		
 		// Parse the option.
@@ -165,8 +163,7 @@ public class CommandLineParser {
 			result = Integer.parseInt(globalOption.parameters.get(0));
 			
 		} catch (NumberFormatException e) {
-			throw new OsmosisRuntimeException(
-					"Expected argument " + (globalOption.offset + 2) + " to contain an integer value.");
+                        throw new OsmosisParsingException(globalOption.offset+2, "", "expected argument %d to contain an integer value.");
 		}
 		
 		return result;
@@ -182,8 +179,7 @@ public class CommandLineParser {
 	private String parseOptionString(GlobalOptionConfiguration globalOption) {
 		// A string option must have one parameter.
 		if (globalOption.parameters.size() != 1) {
-			throw new OsmosisRuntimeException(
-					"Expected argument " + (globalOption.offset + 1) + " to have one parameter.");
+                        throw new OsmosisParsingException(globalOption.offset + 1, "", "expected argument %d to have one parameter.");
 		}
 		
 		return globalOption.parameters.get(0);

@@ -60,6 +60,6 @@ public class OsmosisRuntimeException extends RuntimeException {
      * Formats an userfriendly error message.
      */
     public String getUserfriendlyMessage() {
-                return "an error occurred:\n" + getMessage();
+                return getMessage();
     }
 }

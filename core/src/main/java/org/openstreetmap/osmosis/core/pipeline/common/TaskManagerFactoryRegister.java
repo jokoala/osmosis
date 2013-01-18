@@ -4,7 +4,6 @@ package org.openstreetmap.osmosis.core.pipeline.common;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.openstreetmap.osmosis.core.OsmosisParsingException;
 import org.openstreetmap.osmosis.core.OsmosisRuntimeException;
 
 
